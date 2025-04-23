@@ -1,4 +1,4 @@
-/ ===== Utility =====
+// ===== Utility =====
 const sections = document.querySelectorAll('section');
 const dots = document.querySelectorAll('.dot');
 const header = document.getElementById('mainHeader');
