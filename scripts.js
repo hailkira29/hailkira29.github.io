@@ -64,16 +64,27 @@ projectButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const modal = document.getElementById(`modal-${button.dataset.project}`);
     modal.classList.remove('hidden');
+    // Focus on the modal for accessibility
+    modal.focus();
   });
 });
 closeButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    button.closest('.modal').classList.add('hidden');
+    const modal = button.closest('.modal');
+    modal.classList.add('hidden');
+    // Return focus to the triggering button
+    document.querySelector(`button[data-project="${modal.id.split('-')[1]}"]`).focus();
   });
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    modals.forEach((modal) => modal.classList.add('hidden'));
+    modals.forEach((modal) => {
+      if (!modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        // Return focus to the triggering button
+        document.querySelector(`button[data-project="${modal.id.split('-')[1]}"]`).focus();
+      }
+    });
   }
 });
 
