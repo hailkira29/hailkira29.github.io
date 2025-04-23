@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Hemant Hedaoo’s professional experience in battery software development and embedded systems engineering.">
+  <title>Experience - Hemant Hedaoo Portfolio 2025</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="darkmode-on">
+  <nav class="fixed top-0 left-0 right-0 bg-opacity-90 bg-[#0f172a] z-30 shadow-lg backdrop-blur flex items-center px-6 py-3 glassmorph">
+    <span class="font-bold text-xl tracking-tight text-white flex items-center space-x-2 select-none">
+      <i class="fas fa-bolt text-cyan-400"></i>
+      <span>Hemant Hedaoo</span>
+    </span>
+    <div class="flex-1"></div>
+    <button id="darkmode-toggle" aria-label="Toggle Dark Mode" class="hidden md:inline-flex text-cyan-400 px-3 py-1 mx-4 rounded-lg border-2 border-cyan-400 hover:bg-cyan-400 hover:text-black transition dm-toggle"><i class="fas fa-moon"></i></button>
+    <button id="mobile-menu-toggle" class="md:hidden text-cyan-400 text-2xl"><i class="fas fa-bars"></i></button>
+    <div id="mobile-menu" class="mobile-menu hidden md:flex md:static md:bg-transparent md:flex-row md:space-x-5 md:text-base absolute top-16 left-0 right-0 bg-[#0f172a] flex-col items-center space-y-4 py-4">
+      <a href="index.html" class="hover:text-cyan-400 nav-link">Home</a>
+      <a href="experience.html" class="hover:text-cyan-400 nav-link nav-active">Experience</a>
+      <a href="skills.html" class="hover:text-cyan-400 nav-link">Skills</a>
+      <a href="education.html" class="hover:text-cyan-400 nav-link">Education</a>
+      <a href="projects.html" class="hover:text-cyan-400 nav-link">Projects</a>
+      <a href="contact.html" class="hover:text-cyan-400 nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <main class="pt-24 px-4 max-w-6xl mx-auto min-h-screen">
+    <section id="experience" class="fadein-up section-brutal shadow-brutal py-12">
+      <h2 class="text-3xl font-bold mb-8 px-4 flex items-center"><i class="fas fa-briefcase mr-3 text-cyan-400"></i>Professional Experience</h2>
+      <div class="relative px-4">
+        <div id="timeline3D" style="height:400px;width:100%;"></div>
+      </div>
+      <div class="mt-8 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal">
+          <h3 class="text-xl font-semibold text-cyan-300">Application & Software Developer</h3>
+          <p class="text-cyan-200 text-sm">LXInstruments GmbH, Germany | Mar 2024 - Oct 2024</p>
+          <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
+            <li>Built modular C# WPF platform, improving UI responsiveness by 30%.</li>
+            <li>Integrated SQL battery databank, reducing query time by 40%.</li>
+            <li>Automated KPI dashboard via REST API, saving 1 Wh/report.</li>
+            <li>Mentored 2 interns, boosting team velocity by 10%.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal">
+          <h3 class="text-xl font-semibold text-cyan-300">Master Thesis: SoH Estimation</h3>
+          <p class="text-cyan-200 text-sm">Aug 2023 - Feb 2024</p>
+          <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
+            <li>Developed MATLAB/Simulink algorithms with ±5% SoH accuracy.</li>
+            <li>Processed 10K impedance profiles via SQL for traceability.</li>
+            <li>Validated 120 cells, identifying 18% for second-life reuse.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal">
+          <h3 class="text-xl font-semibold text-cyan-300">Battery Test Intern</h3>
+          <p class="text-cyan-200 text-sm">LXInstruments GmbH, Germany | Apr 2023 - Jul 2023</p>
+          <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
+            <li>Scripted C# PCAN interfaces, tripling signal resolution.</li>
+            <li>Automated test sequences, increasing throughput by 15%.</li>
+            <li>Implemented safety watchdog for 200+ cycles.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal">
+          <h3 class="text-xl font-semibold text-cyan-300">Development Engineer Intern</h3>
+          <p class="text-cyan-200 text-sm">Wacker Neuson, Germany | May 2022 - Oct 2022</p>
+          <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
+            <li>Created MATLAB KPI extractor, improving accuracy by 15%.</li>
+            <li>Optimized peak detection, reducing analysis time by 30%.</li>
+            <li>Prepared technical reports for audits.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal">
+          <h3 class="text-xl font-semibold text-cyan-300">Mechanical Engineer</h3>
+          <p class="text-cyan-200 text-sm">Nangia Motors, India | Jun 2018 - Mar 2019</p>
+          <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
+            <li>Designed and validated drivetrain components in SolidWorks.</li>
+            <li>Conducted stress analysis for durability.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#0f172a] py-6 text-center text-cyan-200 text-sm">
+    © 2025 Hemant Hedaoo. All rights reserved.
+  </footer>
+
+  <script src="scripts.js"></script>
