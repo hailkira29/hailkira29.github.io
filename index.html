@@ -3,193 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hemant Hedaoo’s 2025 portfolio showcasing battery software and embedded engineering with parallax scrolling and 3D animations.">
-  <title>Hemant Hedaoo - Portfolio 2025</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <meta name="description" content="Portfolio of Hemant Hedaoo, Battery Software & Embedded Engineer">
+  <meta name="keywords" content="Hemant Hedaoo, portfolio, battery software, embedded engineer, parallax scrolling">
+  <meta name="author" content="Hemant Hedaoo">
+  <title>Hemant Hedaoo | Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Rellax.js for Parallax -->
+  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+  <!-- Critical CSS (inlined for performance) -->
+  <style>
+    body { margin: 0; font-family: 'Open Sans', sans-serif; background: #1A1A2E; color: #DDDDDD; overflow-x: hidden; }
+    section { height: 100vh; scroll-snap-align: start; position: relative; }
+    h1, h2 { font-family: 'Montserrat', sans-serif; color: #FFFFFF; }
+    .hidden { display: none; }
+  </style>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="darkmode-on">
-  <nav class="fixed top-0 left-0 right-0 bg-opacity-90 bg-[#0f172a] z-50 shadow-lg backdrop-blur flex items-center px-6 py-4 glassmorph">
-    <span class="font-bold text-xl tracking-tight text-white flex items-center space-x-2 select-none">
-      <i class="fas fa-bolt text-cyan-400"></i>
-      <span>Hemant Hedaoo</span>
-    </span>
-    <div class="flex-1"></div>
-    <button id="darkmode-toggle" aria-label="Toggle Dark Mode" class="hidden md:inline-flex text-cyan-400 px-3 py-1 mx-4 rounded-lg border-2 border-cyan-400 hover:bg-cyan-400 hover:text-black transition dm-toggle"><i class="fas fa-moon"></i></button>
-    <button id="mobile-menu-toggle" class="md:hidden text-cyan-400 text-2xl"><i class="fas fa-bars"></i></button>
-    <div id="mobile-menu" class="mobile-menu hidden md:flex md:static md:bg-transparent md:flex-row md:space-x-5 md:text-base absolute top-16 left-0 right-0 bg-[#0f172a] flex-col items-center space-y-4 py-4">
-      <a href="#home" class="hover:text-cyan-400 nav-link nav-active">Home</a>
-      <a href="#about" class="hover:text-cyan-400 nav-link">About</a>
-      <a href="#experience" class="hover:text-cyan-400 nav-link">Experience</a>
-      <a href="#skills" class="hover:text-cyan-400 nav-link">Skills</a>
-      <a href="#education" class="hover:text-cyan-400 nav-link">Education</a>
-      <a href="#projects" class="hover:text-cyan-400 nav-link">Projects</a>
-      <a href="#contact" class="hover:text-cyan-400 nav-link">Contact</a>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <img src="https://via.placeholder.com/50?text=Logo" alt="Hemant Hedaoo Logo" class="logo">
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger hidden" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
+  </header>
+
+  <!-- Dot Navigation -->
+  <nav class="dot-nav" aria-label="Section Navigation">
+    <a href="#hero" class="dot active" data-section="hero" aria-label="Hero Section"></a>
+    <a href="#about" class="dot" data-section="about" aria-label="About Section"></a>
+    <a href="#skills" class="dot" data-section="skills" aria-label="Skills Section"></a>
+    <a href="#projects" class="dot" data-section="projects" aria-label="Projects Section"></a>
+    <a href="#experience" class="dot" data-section="experience" aria-label="Experience Section"></a>
+    <a href="#contact" class="dot" data-section="contact" aria-label="Contact Section"></a>
   </nav>
 
-  <main>
-    <section id="home" class="parallax-section min-h-screen flex flex-col items-center justify-center text-center px-4" data-bg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-      <canvas id="scene-bg" class="absolute top-0 left-0 w-full h-[400px] z-10"></canvas>
-      <div class="z-20 space-y-6 fadein-up">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white">
-          <span class="kinetic-txt">Hemant Hedaoo</span>
-        </h1>
-        <p class="text-cyan-100 text-xl md:text-2xl font-semibold">
-          Battery Software & Embedded Engineer
-        </p>
-        <a href="#about" class="inline-block px-8 py-4 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 transition shadow-brutal">Discover My Work</a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="hero" class="parallax-section">
+    <div class="parallax-bg" data-rellax-speed="-2" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&fm=webp');"></div>
+    <div class="parallax-layer" data-rellax-speed="1"></div>
+    <div class="container hero-content">
+      <h1>Hi, I’m Hemant Hedaoo</h1>
+      <p>Front-End Developer & Battery Software Engineer</p>
+      <a href="#about" class="scroll-down" aria-label="Scroll to About">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
 
-    <section id="about" class="parallax-section py-16 px-4" data-bg="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-      <div class="max-w-4xl mx-auto text-center fadein-up">
-        <h2 class="text-4xl font-bold mb-6 text-cyan-300">About Me</h2>
-        <p class="text-cyan-100 text-lg">
-          I'm a passionate engineer specializing in battery software and embedded systems, with a focus on e-mobility and renewable energy. Based in Stuttgart, Germany, I combine technical expertise in C#, MATLAB, and BMS diagnostics with a drive to innovate sustainable solutions.
-        </p>
+  <!-- About Section -->
+  <section id="about" class="parallax-section">
+    <div class="parallax-bg" data-rellax-speed="-1" style="background-image: url('https://images.unsplash.com/photo-1516321315098-79e83a8d71f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&fm=webp');"></div>
+    <div class="container about-content">
+      <div class="about-photo" data-rellax-speed="2">
+        <picture>
+          <source srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80&fm=webp" type="image/webp">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Hemant Hedaoo" loading="lazy">
+        </picture>
       </div>
-    </section>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I’m a passionate engineer specializing in battery software and embedded systems, with a knack for creating intuitive, high-performance solutions.</p>
+        <ul>
+          <li>Expert in C#, MATLAB, and BMS integration</li>
+          <li>Proven track record in optimizing diagnostic platforms</li>
+          <li>Committed to sustainable energy innovation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="experience" class="py-16 px-4 bg-[#0f172a]">
-      <div class="max-w-6xl mx-auto fadein-up">
-        <h2 class="text-4xl font-bold mb-8 text-cyan-300 flex items-center"><i class="fas fa-briefcase mr-3"></i>Experience</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal hover-scale">
-            <h3 class="text-xl font-semibold text-cyan-300">Application & Software Developer</h3>
-            <p class="text-cyan-200 text-sm">LXInstruments GmbH, Germany | Mar 2024 - Oct 2024</p>
-            <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
-              <li>Built modular C# WPF platform, improving UI responsiveness by 30%.</li>
-              <li>Integrated SQL battery databank, reducing query time by 40%.</li>
-              <li>Automated KPI dashboard via REST API, saving 1 Wh/report.</li>
-            </ul>
+  <!-- Skills Section -->
+  <section id="skills" class="parallax-section">
+    <div class="parallax-bg" data-rellax-speed="-1" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&fm=webp');"></div>
+    <div class="container skills-content">
+      <h2>Skills Showcase</h2>
+      <div class="skills-carousel">
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/csharp.svg" alt="C# Icon" class="skill-icon">
+          <h3>C#</h3>
+          <div class="progress-bar" style="width: 90%;"></div>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/python.svg" alt="Python Icon" class="skill-icon">
+          <h3>Python</h3>
+          <div class="progress-bar" style="width: 85%;"></div>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/matlab.svg" alt="MATLAB Icon" class="skill-icon">
+          <h3>MATLAB</h3>
+          <div class="progress-bar" style="width: 80%;"></div>
+        </div>
+        <div class="skill-card">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/git.svg" alt="Git Icon" class="skill-icon">
+          <h3>Git</h3>
+          <div class="progress-bar" style="width: 75%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="parallax-section">
+    <div class="parallax-bg" data-rellax-speed="-1" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&fm=webp');"></div>
+    <div class="container projects-content">
+      <h2>Projects Gallery</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <picture>
+            <source srcset="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp" type="image/webp">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Battery Modelling Project" loading="lazy">
+          </picture>
+          <div class="project-overlay">
+            <h3>Battery Modelling</h3>
+            <button class="view-project" data-project="battery">View Details</button>
           </div>
-          <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal hover-scale">
-            <h3 class="text-xl font-semibold text-cyan-300">Master Thesis: SoH Estimation</h3>
-            <p class="text-cyan-200 text-sm">Aug 2023 - Feb 2024</p>
-            <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
-              <li>Developed MATLAB/Simulink algorithms with ±5% SoH accuracy.</li>
-              <li>Processed 10K impedance profiles via SQL for traceability.</li>
-            </ul>
-          </div>
-          <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal hover-scale">
-            <h3 class="text-xl font-semibold text-cyan-300">Battery Test Intern</h3>
-            <p class="text-cyan-200 text-sm">LXInstruments GmbH, Germany | Apr 2023 - Jul 2023</p>
-            <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
-              <li>Scripted C# PCAN interfaces, tripling signal resolution.</li>
-              <li>Automated test sequences, increasing throughput by 15%.</li>
-            </ul>
-          </div>
-          <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal hover-scale">
-            <h3 class="text-xl font-semibold text-cyan-300">Development Engineer Intern</h3>
-            <p class="text-cyan-200 text-sm">Wacker Neuson, Germany | May 2022 - Oct 2022</p>
-            <ul class="list-disc pl-5 text-cyan-100 text-sm mt-2">
-              <li>Created MATLAB KPI extractor, improving accuracy by 15%.</li>
-              <li>Optimized peak detection, reducing analysis time by 30%.</li>
-            </ul>
+        </div>
+        <div class="project-card fade-in">
+          <picture>
+            <source srcset="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp" type="image/webp">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fuel Cell Simulation" loading="lazy">
+          </picture>
+          <div class="project-overlay">
+            <h3>Fuel Cell Simulation</h3>
+            <button class="view-project" data-project="fuel-cell">View Details</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    <!-- Project Modals -->
+    <div class="modal hidden" id="modal-battery" role="dialog" aria-labelledby="modal-battery-title">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close Modal">✕</button>
+        <h3 id="modal-battery-title">Battery Modelling & BMS</h3>
+        <p>Developed electrothermal models in MATLAB/Simulink, achieving <2% SOC error over 500 cycles.</p>
+        <a href="#" class="modal-link">View Demo</a>
+        <a href="https://github.com/placeholder" class="modal-link">GitHub</a>
+      </div>
+    </div>
+    <div class="modal hidden" id="modal-fuel-cell" role="dialog" aria-labelledby="modal-fuel-cell-title">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close Modal">✕</button>
+        <h3 id="modal-fuel-cell-title">PEM Fuel Cell Simulation</h3>
+        <p>Modelled flow dynamics, improving efficiency by 3%. Adopted by research teams.</p>
+        <a href="#" class="modal-link">View Demo</a>
+        <a href="https://github.com/placeholder" class="modal-link">GitHub</a>
+      </div>
+    </div>
+  </section>
 
-    <section id="skills" class="parallax-section py-16 px-4" data-bg="https://images.unsplash.com/photo-1516321310768-61cd816f2b85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-      <div class="max-w-6xl mx-auto fadein-up">
-        <h2 class="text-4xl font-bold mb-8 text-cyan-300 flex items-center"><i class="fas fa-tools mr-3"></i>Skills</h2>
-        <div class="flex flex-col md:flex-row gap-8">
-          <div class="md:w-1/2">
-            <div class="bg-gray-900 rounded-lg py-4 px-3 mb-6">
-              <canvas id="skillsChart"></canvas>
-            </div>
-            <ul class="ml-5 text-cyan-100 text-sm list-disc">
-              <li>Programming: C#, .NET/WPF, MATLAB, Simulink, Python, SQL</li>
-              <li>Diagnostics: EIS, CAN (PCAN), BMU/BMS Integration</li>
-              <li>Tools: Git, Jenkins, Azure DevOps, JIRA, SolidWorks</li>
-            </ul>
+  <!-- Experience Section -->
+  <section id="experience" class="parallax-section">
+    <div class="parallax-bg" data-rellax-speed="-1" style="background-image: url('https://images.unsplash.com/photo-1516321315098-79e83a8d71f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80&fm=webp');"></div>
+    <div class="container experience-content">
+      <h2>Experience Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-date">Mar 2024 - Oct 2024</div>
+          <div class="timeline-card">
+            <h3>Application & Software Developer</h3>
+            <p>LXInstruments GmbH, Germany</p>
+            <p>Built C# WPF diagnostic platform, improved UI responsiveness by 30%.</p>
           </div>
-          <div class="md:w-1/2">
-            <div id="skillsNetwork" style="height:300px;width:100%;"></div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-date">Aug 2023 - Feb 2024</div>
+          <div class="timeline-card">
+            <h3>Master Thesis - SoH Estimation</h3>
+            <p>Developed MATLAB algorithms with ±5% SoH accuracy.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="education" class="py-16 px-4 bg-[#0f172a]">
-      <div class="max-w-6xl mx-auto fadein-up">
-        <h2 class="text-4xl font-bold mb-8 text-cyan-300 flex items-center"><i class="fas fa-graduation-cap mr-3"></i>Education</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="p-6 rounded-lg bg-gradient-to-br from-gray-900 via-blue-800 to-slate-800 shadow-brutal hover-scale">
-            <h3 class="font-semibold text-xl text-cyan-300">M.Eng – Renewable Energy & E-Mobility</h3>
-            <p class="text-cyan-200 text-sm">Hochschule Stralsund, Germany | 03/2020 – 03/2024</p>
-            <p class="text-cyan-100 text-sm mt-3">Specialized in battery technology and e-mobility systems.</p>
-          </div>
-          <div class="p-6 rounded-lg bg-gradient-to-br from-yellow-200 via-orange-400 to-yellow-400 shadow-brutal hover-scale">
-            <h3 class="font-semibold text-xl text-slate-900">B.Eng – Mechanical Engineering</h3>
-            <p class="text-amber-800 text-sm">P.I.E.T, Nagpur, India | 08/2014 – 05/2018</p>
-            <p class="text-amber-800 text-sm mt-3">Expertise in mechanical design and drivetrain systems.</p>
-          </div>
+  <!-- Contact Section -->
+  <section id="contact" class="parallax-section">
+    <div class="parallax-bg" data-rellax-speed="-2">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.121418075469!2d9.16974831562857!3d48.78358397927988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db2f6c0f0b7b%3A0x2b7e5f5c5e6c6e7e!2sStuttgart%2C%20Germany!5e0!3m2!1sen!2sus!4v1699481234567" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="container contact-content">
+      <div class="contact-form">
+        <h2>Contact Me</h2>
+        <div class="form-container">
+          <input type="text" placeholder="Name" aria-label="Name">
+          <input type="email" placeholder="Email" aria-label="Email">
+          <textarea placeholder="Message" aria-label="Message"></textarea>
+          <button class="submit-btn">Send Message</button>
+        </div>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/hemant-hedaoo" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/placeholder" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+          <a href="mailto:hemanthedaoo29@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
-    </section>
-
-    <section id="projects" class="parallax-section py-16 px-4" data-bg="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-      <div class="max-w-6xl mx-auto fadein-up">
-        <h2 class="text-4xl font-bold mb-8 text-cyan-300 flex items-center"><i class="fas fa-project-diagram mr-3"></i>Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal hover-scale">
-            <h3 class="font-semibold text-xl text-cyan-300">Lithium-ion Battery Modelling</h3>
-            <p class="text-cyan-200 text-sm mt-2">2021 – 2022</p>
-            <ul class="list-disc pl-5 text-cyan-100 text-sm mt-3">
-              <li>MATLAB/Simulink models with <2% SoC error.</li>
-              <li>Improved fault detection for e-mobility.</li>
-            </ul>
-          </div>
-          <div class="bg-gray-900 bg-opacity-85 rounded-lg p-6 shadow-brutal hover-scale">
-            <h3 class="font-semibold text-xl text-cyan-300">PEM Fuel Cell Simulation</h3>
-            <p class="text-cyan-200 text-sm mt-2">2021</p>
-            <ul class="list-disc pl-5 text-cyan-100 text-sm mt-3">
-              <li>Modeled polarization curves in MATLAB.</li>
-              <li>3% efficiency gain via simulation.</li>
-            </ul>
-          </div>
-          <div class="col-span-1 md:col-span-2 mt-8">
-            <h3 class="font-semibold text-xl text-amber-300 mb-4"><i class="fas fa-chart-line mr-2"></i>Battery SoH Prediction</h3>
-            <div id="battery-chart" style="height:300px;width:100%;"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="py-16 px-4 bg-[#0f172a]">
-      <div class="max-w-4xl mx-auto text-center fadein-up">
-        <h2 class="text-4xl font-bold mb-8 text-cyan-300 flex items-center justify-center"><i class="fas fa-paper-plane mr-3"></i>Contact</h2>
-        <div class="space-y-4 text-sm">
-          <div class="flex items-center justify-center gap-3 hover-scale">
-            <i class="fas fa-map-marker-alt text-cyan-400"></i>
-            <span>Stuttgart, Germany</span>
-          </div>
-          <div class="flex items-center justify-center gap-3 hover-scale">
-            <i class="fas fa-envelope text-cyan-400"></i>
-            <a href="mailto:hemantheda0029@gmail.com" class="underline hover:text-cyan-300">hemantheda0029@gmail.com</a>
-          </div>
-          <div class="flex items-center justify-center gap-3 hover-scale">
-            <i class="fab fa-linkedin text-cyan-400"></i>
-            <a href="https://linkedin.com/in/hemant-hedaoo" target="_blank" class="underline hover:text-cyan-300">linkedin.com/in/hemant-hedaoo</a>
-          </div>
-          <a href="mailto:hemantheda0029@gmail.com" class="inline-block mt-8 px-8 py-4 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 transition shadow-brutal">Get in Touch</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-[#0f172a] py-6 text-center text-cyan-200 text-sm">
-    © 2025 Hemant Hedaoo. All rights reserved.
-  </footer>
+    </div>
+  </section>
 
   <script src="scripts.js"></script>
+</body>
+</html>
